@@ -32,4 +32,20 @@ final class MapleKitTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testOcid() async throws {
+        // ✅ 준비
+        let apiService = MapleService()
+        let name = "라주팔"
+
+        // ✅ 실행
+        let result = try await apiService.getId(name: name)
+        
+        // ✅ 출력
+        print(result)
+
+        // ✅ 검증
+        XCTAssertNoThrow(result)
+        XCTAssertNotNil(result, "검색 결과가 없음")
+    }
 }
